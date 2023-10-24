@@ -3,8 +3,9 @@
     "editor.defaultFormatter": "ms-python.autopep8"
   },
   "files.exclude": {
-    ".venv": false,
+    ".venv": true,
     "**/__pycache__": true,
-    ".gitattributes": true
+    ".gitattributes": true,
+    "ui": true
   }
 }

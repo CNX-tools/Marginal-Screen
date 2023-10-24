@@ -142,7 +142,7 @@ class MainGui(QWidget):
 
         __line_position = QTableWidgetItem()
         __line_position.setFont(self.font2)
-        __line_position.setText("Position (Top-Bottom / Left-Right)")
+        __line_position.setText("Position (From Top / Left side)")
         self.tableWidget.setHorizontalHeaderItem(3, __line_position)
 
         self.tableWidget.setObjectName(u"tableWidget")
@@ -179,3 +179,11 @@ class MainGui(QWidget):
         self.__setupComboBox()
         # Set up the table
         self.__setupTable()
+
+    def warning_box(self, message: str):
+        box = QMessageBox()
+        box.setIcon(QMessageBox.Icon.Warning)
+        box.setWindowTitle("Warning")
+        box.setText(message)
+        box.setStandardButtons(QMessageBox.StandardButton.Ok)
+        box.exec()
