@@ -25,6 +25,7 @@ class MainController(MainGui):
         self.delete_line_button.clicked.connect(lambda: self.delete_line_event(self.comboBox_2.text()))
 
         self.transparent_gui = TransparentGui(app=self.app)
+        self.closed.connect(self.transparent_gui.close)
         self.transparent_gui.show()  # Show the transparent gui
         self.toggle_line_signal.connect(self.transparent_gui.toggle_line)
 
@@ -54,3 +55,7 @@ class MainController(MainGui):
 
         print(f'Delete line {no}')
         self.toggle_line_signal.emit('delete', no)
+
+    def closeEvent(self, event) -> None:
+        self.closed.emit()
+        event.accept()

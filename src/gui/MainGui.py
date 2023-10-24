@@ -1,5 +1,6 @@
 import os
 import sys
+from PyQt6 import QtGui
 sys.path.append(os.getcwd())  # NOQA
 
 from PyQt6.QtGui import *
@@ -41,6 +42,7 @@ class QComboBoxDelegateForColumn(QStyledItemDelegate):
 class MainGui(QWidget):
 
     base_colors: list = ["black", "red", "green", "blue", "white", "gray"]
+    closed = pyqtSignal()
 
     def __init__(self, app: QApplication, parent=None):
         super(MainGui, self).__init__(parent)
