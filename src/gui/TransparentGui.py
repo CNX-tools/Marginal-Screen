@@ -51,9 +51,6 @@ class TransparentGui(QMainWindow):
         white_pen = QPen(Qt.GlobalColor.white, 1.5, Qt.PenStyle.SolidLine)
         gray_pen = QPen(Qt.GlobalColor.gray, 1.5, Qt.PenStyle.SolidLine)
         black_pen = QPen(Qt.GlobalColor.black, 1.5, Qt.PenStyle.SolidLine)
-        
-        painter.setPen(red_pen)
-        painter.drawLine(0, 500, self.width(), 500)
 
         if not self.visible:
             return
