@@ -28,14 +28,14 @@ class MainController(MainGui):
         # Connect the event change of the table
         self.tableWidget.itemChanged.connect(self.table_changed_event)
 
-        # Create the transparent gui
-        self.transparent_gui = TransparentGui(app=self.app)
-        self.closed.connect(self.transparent_gui.close)
-        self.transparent_gui.show()  # Show the transparent gui
-        self.toggle_line_signal.connect(self.transparent_gui.toggle_line)
+        # # Create the transparent gui
+        # self.transparent_gui = TransparentGui(app=self.app)
+        # self.closed.connect(self.transparent_gui.close)
+        # self.transparent_gui.show()  # Show the transparent gui
+        # self.toggle_line_signal.connect(self.transparent_gui.toggle_line)
 
-        # Load the saved data
-        self.load_data()
+        # # Load the saved data
+        # self.load_data()
 
     def load_data(self):
         with open(self.data_dir, 'r') as f:

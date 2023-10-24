@@ -53,24 +53,21 @@ class MainGui(QWidget):
 
     def setupFont(self):
         self.font = QFont()
-        self.font.setFamily(u"Segoe UI")
-        self.font.setPointSize(10)
+        self.font.setPointSize(11)
 
         self.font1 = QFont()
-        self.font1.setFamily(u"Segoe UI")
-        self.font1.setPointSize(10)
+        self.font1.setPointSize(12)
         self.font1.setBold(True)
 
         self.font2 = QFont()
-        self.font2.setFamily(u"Segoe UI")
-        self.font2.setPointSize(10)
+        self.font2.setPointSize(11)
         self.font2.setBold(True)
         self.font2.setItalic(True)
 
     def __setupLabel(self):
         self.label = QLabel(self)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(73, 20, 121, 31))
+        self.label.setGeometry(QRect(77, 20, 121, 31))
         self.label.setFont(self.font1)
         self.label.setText("Marginal Monitor")
 

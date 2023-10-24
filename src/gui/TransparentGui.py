@@ -3,6 +3,7 @@ import os
 import sys
 
 from PyQt6 import QtCore, QtGui
+from PyQt6.QtCore import QEvent, QObject
 from PyQt6.QtWidgets import QWidget
 sys.path.append(os.getcwd())  # NOQA
 
@@ -21,7 +22,7 @@ class TransparentGui(QMainWindow):
 
         self.setWindowTitle('Transparent Screen')
 
-        self.setWindowFlags(Qt.WindowType.FramelessWindowHint | Qt.WindowType.WindowStaysOnTopHint)
+        self.setWindowFlags(Qt.WindowType.FramelessWindowHint | Qt.WindowType.WindowDoesNotAcceptFocus | Qt.WindowType.WindowStaysOnTopHint | Qt.WindowType.WindowTransparentForInput)
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
         self.setGeometry(0, 0, 0, 0)
 
@@ -50,6 +51,9 @@ class TransparentGui(QMainWindow):
         white_pen = QPen(Qt.GlobalColor.white, 1.5, Qt.PenStyle.SolidLine)
         gray_pen = QPen(Qt.GlobalColor.gray, 1.5, Qt.PenStyle.SolidLine)
         black_pen = QPen(Qt.GlobalColor.black, 1.5, Qt.PenStyle.SolidLine)
+        
+        painter.setPen(red_pen)
+        painter.drawLine(0, 500, self.width(), 500)
 
         if not self.visible:
             return
@@ -92,3 +96,9 @@ class TransparentGui(QMainWindow):
             self.lines = [line for line in self.lines if line[0] != int(value)]
 
         self.update()
+
+if __name__=='__main__':
+    app = QApplication(sys.argv)
+    transparent_gui = TransparentGui(app)
+    transparent_gui.show()
+    sys.exit(app.exec())
